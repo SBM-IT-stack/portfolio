@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+# ~/.bash_aliases : alias personnels, chargés par bashrc_extra
+
+# --- Navigation ---
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+alias -- -='cd -'          # revenir au répertoire précédent
+
+# --- Listing ---
+alias ls='ls --color=auto'
+alias ll='ls -lhA --color=auto'
+alias la='ls -lhA --color=auto'
+alias lt='ls -lhAt --color=auto'   # tri par date de modification
+
+# --- Système ---
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias ports='ss -tulanp'                       # ports en écoute
+alias meminfo='free -h -l -t'
+alias psg='ps aux | grep -v grep | grep -i'     # ex: psg nginx
+alias update='sudo apt update && sudo apt upgrade -y'
+alias cleanup='sudo apt autoremove -y && sudo apt autoclean'
+
+# --- Git ---
+alias gs='git status'
+alias ga='git add'
+alias gaa='git add -A'
+alias gc='git commit -m'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate -n 20'
+alias gd='git diff'
+alias gco='git checkout'
+alias gb='git branch'
+
+# --- Réseau / sécurité de base ---
+alias myip='curl -s ifconfig.me && echo'
+alias pingg='ping -c 4 8.8.8.8'
+alias fw='sudo ufw status verbose'
+
+# --- Divers ---
+alias h='history'
+alias c='clear'
+alias reload='source ~/.bashrc && echo "bashrc rechargé"'
+alias path='echo -e ${PATH//:/\\n}'
+alias grep='grep --color=auto'

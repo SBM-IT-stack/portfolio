@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Domotique - Dashboard (simulation)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #0F1115;
+    --surface: #171A21;
+    --surface-hover: #1D212A;
+    --border: #262B35;
+    --text: #E7E9EE;
+    --text-muted: #8A93A6;
+    --accent: #4FD1C5;
+    --accent-soft: rgba(79, 209, 197, 0.14);
+    --warn: #E8B75A;
+    --danger: #E0645C;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+}
+.wrap { max-width: 920px; margin: 0 auto; padding: 48px 20px 80px; }
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 8px;
+}
+h1 { font-family: var(--font-mono); font-size: 30px; margin: 0 0 4px; }
+.subtitle { color: var(--text-muted); font-size: 14px; margin: 0 0 32px; }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.room-card h2 {
+    font-size: 16px;
+    margin: 0 0 2px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.room-icon { font-size: 20px; }
+
+.room-temp {
+    font-family: var(--font-mono);
+    font-size: 34px;
+    font-weight: 700;
+    margin: 10px 0 2px;
+}
+
+.room-temp span { font-size: 16px; color: var(--text-muted); font-weight: 400; }
+
+.room-humidity {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+    font-family: var(--font-mono);
+}
+
+.toggle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-top: 1px solid var(--border);
+    font-size: 13px;
+}
+
+.toggle-row:first-of-type { border-top: none; }
+
+.switch {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    flex-shrink: 0;
+}
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: var(--border);
+    border-radius: 22px;
+    transition: 0.2s;
+}
+.slider::before {
+    content: "";
+    position: absolute;
+    height: 16px; width: 16px;
+    left: 3px; bottom: 3px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    transition: 0.2s;
+}
+input:checked + .slider { background: var(--accent-soft); }
+input:checked + .slider::before { background: var(--accent); transform: translateX(18px); }
+
+.consumption-card h2 {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin: 0 0 16px;
+}
+
+.bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 100px;
+}
+.bar {
+    flex: 1;
+    background: var(--accent);
+    opacity: 0.35;
+    border-radius: 3px 3px 0 0;
+    transition: height 0.4s ease, opacity 0.2s ease;
+}
+.bar.now { opacity: 1; }
+
+.bars-labels {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 32px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+    <p class="eyebrow">$ domotique --dashboard --mode simulation</p>
+    <h1>Maison connectée</h1>
+    <p class="subtitle">Concept de tableau de bord domotique, données simulées, aucun matériel réel connecté</p>
+
+    <div class="grid" id="rooms"></div>
+
+    <div class="card consumption-card">
+        <h2>Consommation électrique (simulation, 12 dernières heures)</h2>
+        <div class="bars" id="bars"></div>
+        <div class="bars-labels" id="bars-labels"></div>
+    </div>
+
+    <p class="disclaimer">Projet de démonstration : les valeurs de température/humidité/consommation sont générées aléatoirement côté client (aucun backend, aucune donnée réelle).</p>
+</div>
+
+<script>
+const rooms = [
+    { name: "Salon", icon: "🛋️", temp: 21.5, humidity: 45, lights: true, extra: "Prise TV" },
+    { name: "Chambre", icon: "🛏️", temp: 19.0, humidity: 50, lights: false, extra: "Volet roulant" },
+    { name: "Cuisine", icon: "🍳", temp: 22.0, humidity: 55, lights: true, extra: "Prise four" },
+    { name: "Garage", icon: "🚗", temp: 15.0, humidity: 60, lights: false, extra: "Prise IRVE" },
+];
+
+const roomsContainer = document.getElementById("rooms");
+
+function renderRooms() {
+    roomsContainer.innerHTML = "";
+    rooms.forEach((room, i) => {
+        const card = document.createElement("div");
+        card.className = "card room-card";
+        card.innerHTML = `
+            <h2><span class="room-icon">${room.icon}</span> ${room.name}</h2>
+            <div class="room-temp">${room.temp.toFixed(1)}<span>°C</span></div>
+            <div class="room-humidity">Humidité : ${room.humidity}%</div>
+            <div class="toggle-row">
+                <span>Éclairage</span>
+                <label class="switch">
+                    <input type="checkbox" data-room="${i}" data-field="lights" ${room.lights ? "checked" : ""}>
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <div class="toggle-row">
+                <span>${room.extra}</span>
+                <label class="switch">
+                    <input type="checkbox" data-room="${i}" data-field="extra_on" ${room.extra_on ? "checked" : ""}>
+                    <span class="slider"></span>
+                </label>
+            </div>
+        `;
+        roomsContainer.appendChild(card);
+    });
+
+    document.querySelectorAll('input[type="checkbox"]').forEach(input => {
+        input.addEventListener("change", e => {
+            const idx = e.target.dataset.room;
+            const field = e.target.dataset.field;
+            rooms[idx][field] = e.target.checked;
+        });
+    });
+}
+
+// Simule une petite variation aléatoire de température/humidité toutes les 3s
+function simulateSensors() {
+    rooms.forEach(room => {
+        room.temp += (Math.random() - 0.5) * 0.3;
+        room.humidity = Math.max(30, Math.min(70, room.humidity + (Math.random() - 0.5) * 2));
+    });
+    renderRooms();
+}
+
+renderRooms();
+setInterval(simulateSensors, 3000);
+
+// --- Graphique de consommation (barres simulées) ---
+const barsContainer = document.getElementById("bars");
+const labelsContainer = document.getElementById("bars-labels");
+const now = new Date();
+const hours = [];
+for (let i = 11; i >= 0; i--) {
+    const h = new Date(now.getTime() - i * 3600000);
+    hours.push(h.getHours() + "h");
+}
+
+function renderBars() {
+    barsContainer.innerHTML = "";
+    hours.forEach((label, i) => {
+        const value = 20 + Math.random() * 80; // kWh simulés
+        const bar = document.createElement("div");
+        bar.className = "bar" + (i === hours.length - 1 ? " now" : "");
+        bar.style.height = value + "%";
+        bar.title = `${label} : ${value.toFixed(1)} kWh (simulé)`;
+        barsContainer.appendChild(bar);
+    });
+    labelsContainer.innerHTML = `<span>${hours[0]}</span><span>${hours[hours.length - 1]}</span>`;
+}
+renderBars();
+</script>
+</body>
+</html>

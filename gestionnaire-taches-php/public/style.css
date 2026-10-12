@@ -1,0 +1,210 @@
+:root {
+    --bg: #0F1115;
+    --surface: #171A21;
+    --surface-hover: #1D212A;
+    --border: #262B35;
+    --text: #E7E9EE;
+    --text-muted: #8A93A6;
+    --accent: #4FD1C5;
+    --accent-soft: rgba(79, 209, 197, 0.14);
+    --warn: #E8B75A;
+    --danger: #E0645C;
+    --success: #6FCF97;
+    --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+}
+
+.wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+}
+
+/* --- Header --- */
+.app-header { margin-bottom: 32px; }
+
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 8px;
+    letter-spacing: 0.02em;
+}
+
+.app-header h1 {
+    font-family: var(--font-mono);
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 4px;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    margin: 0;
+    font-size: 14px;
+}
+
+/* --- Cards --- */
+.card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.add-task-card {
+    margin-bottom: 28px;
+}
+
+.add-task-card h2 {
+    font-family: var(--font-mono);
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    margin: 0 0 14px;
+}
+
+/* --- Form --- */
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input[type="text"], textarea, select {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 14px;
+    padding: 10px 12px;
+    width: 100%;
+    resize: vertical;
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.btn {
+    font-family: var(--font-sans);
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.btn:hover { opacity: 0.85; }
+
+.btn-primary {
+    background: var(--accent);
+    color: #04201D;
+    align-self: flex-start;
+}
+
+.btn-danger {
+    background: transparent;
+    color: var(--danger);
+    border: 1px solid var(--danger);
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+/* --- Task list --- */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.empty-state {
+    color: var(--text-muted);
+    text-align: center;
+    padding: 40px 0;
+    font-size: 14px;
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+    transition: background 0.15s ease;
+}
+
+.task-item:hover { background: var(--surface-hover); }
+
+.task-main {
+    display: flex;
+    gap: 12px;
+    flex: 1;
+    min-width: 200px;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-top: 6px;
+    flex-shrink: 0;
+    background: var(--text-muted);
+}
+
+.status-a_faire .status-dot { background: var(--text-muted); }
+.status-en_cours .status-dot { background: var(--warn); }
+.status-termine .status-dot { background: var(--success); }
+
+.task-item h3 {
+    margin: 0 0 4px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.status-termine h3 {
+    color: var(--text-muted);
+    text-decoration: line-through;
+}
+
+.task-desc {
+    margin: 0 0 6px;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.task-meta {
+    margin: 0;
+    font-size: 12px;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    opacity: 0.7;
+}
+
+.task-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.task-actions select {
+    width: auto;
+    padding: 6px 8px;
+    font-size: 13px;
+}

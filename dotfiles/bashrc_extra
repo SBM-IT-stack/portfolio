@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# ~/.bashrc_extra : chargé à la fin de ~/.bashrc par install.sh
+# Contient : prompt personnalisé (git-aware, code retour) + options d'historique
+
+# --- Charger les alias ---
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+# --- Historique ---
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+export HISTCONTROL=ignoredups:erasedups   # pas de doublons
+shopt -s histappend                       # append au lieu d'écraser
+shopt -s checkwinsize                     # ajuste LINES/COLUMNS après resize
+
+# --- Couleurs (codes ANSI) ---
+COLOR_RESET='\[\033[0m\]'
+COLOR_GREEN='\[\033[01;32m\]'
+COLOR_RED='\[\033[01;31m\]'
+COLOR_BLUE='\[\033[01;34m\]'
+COLOR_YELLOW='\[\033[01;33m\]'
+
+# --- Fonction : branche git courante ---
+git_branch() {
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [ -n "$branch" ]; then
+        echo " (${branch})"
+    fi
+}
+
+# --- Fonction : indicateur de code retour de la dernière commande ---
+last_status() {
+    local exit_code=$?
+    if [ $exit_code -eq 0 ]; then
+        echo -e "${COLOR_GREEN}[✓]${COLOR_RESET}"
+    else
+        echo -e "${COLOR_RED}[✗]${COLOR_RESET}"
+    fi
+}
+
+# --- Prompt final ---
+# Exemple rendu : [✓] sebastien@debian:~/projets/dotfiles (main) $
+PS1='$(last_status) '${COLOR_GREEN}'\u@\h'${COLOR_RESET}':'${COLOR_BLUE}'\w'${COLOR_YELLOW}'$(git_branch)'${COLOR_RESET}' \$ '
+
+# --- Petits raccourcis pratiques ---
+mkcd() { mkdir -p "$1" && cd "$1"; }          # crée un dossier et y entre directement
+extract() {                                   # décompresse à peu près n'importe quoi
+    if [ -f "$1" ]; then
+        case "$1" in
+            *.tar.bz2) tar xjf "$1" ;;
+            *.tar.gz)  tar xzf "$1" ;;
+            *.zip)     unzip "$1" ;;
+            *.gz)      gunzip "$1" ;;
+            *.tar)     tar xf "$1" ;;
+            *)         echo "Format non supporté : $1" ;;
+        esac
+    else
+        echo "Fichier introuvable : $1"
+    fi
+}
