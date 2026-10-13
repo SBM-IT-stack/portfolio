@@ -49,7 +49,7 @@
 | [`scripts/powershell/nettoyage-poste`](scripts/powershell/nettoyage-poste) | Nettoyage des fichiers temporaires et repérage des vieux profils utilisateurs | PowerShell |
 | [`dotfiles`](dotfiles) | Ma config Linux/terminal (alias, bashrc) avec script d'installation | Bash |
 | [`sql/inventaire-parc`](sql/inventaire-parc) | Base SQLite (postes, utilisateurs, services, logiciels) et requêtes de suivi : garanties, Windows 10, antivirus, licences | SQL, SQLite |
-| [`python/parse-auth-log`](python/parse-auth-log/) | Python | Compte les tentatives SSH échouées par IP dans auth.log (gz, journald, export CSV) |
+| [`python/parse-auth-log`](python/parse-auth-log/) | Compte les tentatives SSH échouées par IP dans auth.log (gz, journald, export CSV) | Python |
 
 ### Support & procédures
 
