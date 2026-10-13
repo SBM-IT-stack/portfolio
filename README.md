@@ -1,10 +1,10 @@
 <h1 align="center">Sébastien Bou Malhab</h1>
 
 <p align="center">
-  Passionné de <b>Linux</b> et d'administration système, curieux de nature, je touche à beaucoup de choses,
+  Passionné de Linux et d'administration système, curieux de nature, je touche à beaucoup de choses,
   du script Bash au CRUD PHP en passant par la sécurité réseau.
   <br>
-  En recherche d'une <b>alternance BTS SIO option SISR</b>, ou d'un poste en CDI dans la métropole lyonnaise.
+  En recherche d'une alternance BTS SIO option SISR, ou d'un poste en CDI dans la métropole lyonnaise.
 </p>
 
 <p align="center">
@@ -48,6 +48,8 @@
 | [`scripts/powershell/ad-users-csv`](scripts/powershell/ad-users-csv) | Création de comptes Active Directory en masse depuis un CSV, avec simulation et rapport | PowerShell, AD |
 | [`scripts/powershell/nettoyage-poste`](scripts/powershell/nettoyage-poste) | Nettoyage des fichiers temporaires et repérage des vieux profils utilisateurs | PowerShell |
 | [`dotfiles`](dotfiles) | Ma config Linux/terminal (alias, bashrc) avec script d'installation | Bash |
+| [`sql/inventaire-parc`](sql/inventaire-parc) | Base SQLite (postes, utilisateurs, services, logiciels) et requêtes de suivi : garanties, Windows 10, antivirus, licences | SQL, SQLite |
+| [`python/parse-auth-log`](python/parse-auth-log/) | Python | Compte les tentatives SSH échouées par IP dans auth.log (gz, journald, export CSV) |
 
 ### Support & procédures
 
