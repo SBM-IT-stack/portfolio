@@ -58,6 +58,7 @@
 | [`fiches/diagnostic-reseau-local.md`](fiches/diagnostic-reseau-local.md) | Procédure de diagnostic réseau local |
 | [`fiches/securite-poste-utilisateur.md`](fiches/securite-poste-utilisateur.md) | Checklist de sécurisation d'un poste utilisateur |
 | [`fiches/reset-mot-de-passe.md`](fiches/reset-mot-de-passe.md) | Procédure N1 : réinitialisation de mot de passe et déverrouillage de compte AD |
+| [`fiches/imprimante-reseau.md`](fiches/imprimante-reseau.md) | Procédure N2 : réseau, serveur d'impression, postes ; Imprimante réseau qui ne répond plus 
 
 ### Développement
 
