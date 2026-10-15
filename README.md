@@ -68,6 +68,7 @@
 | [`port-scanner`](port-scanner) | Scanner de ports réseau en ligne de commande | Python |
 | [`domotique-dashboard`](domotique-dashboard) | Tableau de bord web de simulation domotique (capteurs, interrupteurs) | HTML/CSS/JS |
 | [`cobol/01-moyenne`](cobol/01-moyenne) | Calcul de moyenne, min, max et mention avec contrôle des saisies | COBOL |
+| [`cobol/02-fichier-clients`](cobol/02-fichier-clients)| Lecture fichier clients (COBOL) | Lecture d'un fichier séquentiel à largeur fixe, liste des clients, débiteurs et total des soldes | COBOL (GnuCOBOL)
 
 ## Objectif professionnel
 
