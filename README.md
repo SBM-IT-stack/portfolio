@@ -74,6 +74,6 @@
 
 Intégrer une équipe informatique pour développer des compétences solides en systèmes, réseaux et sécurité.
 
-Je veux commencer par le terrain (support, gestion de parc, préparation de postes, comptes utilisateurs, documentation, diagnostic réseau), puis évoluer vers l'administration d'infrastructures sécurisées.---
+Je veux commencer par le terrain (support, gestion de parc, préparation de postes, comptes utilisateurs, documentation, diagnostic réseau), puis évoluer vers l'administration d'infrastructures sécurisées.
 
 <p align="center"><i>Disponible pour une prise de fonction dès maintenant, n'hésitez pas à me contacter.</i></p>
