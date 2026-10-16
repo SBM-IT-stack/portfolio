@@ -1,0 +1,4 @@
+# Un nom de poste (ou une IP) par ligne, les lignes en # sont ignorees
+PC-COMPTA01
+PC-COMPTA02
+PC-ACCUEIL

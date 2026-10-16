@@ -1,0 +1,6 @@
+# Postes de test
+PC-COMPTA01
+PC-ETEINT
+
+PC-SANS-WINRM
+PC-COMPTA01
