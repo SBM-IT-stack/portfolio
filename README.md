@@ -47,6 +47,7 @@
 | [`scripts/powershell`](scripts/powershell) | Diagnostic réseau et inventaire système sous Windows | PowerShell |
 | [`scripts/powershell/ad-users-csv`](scripts/powershell/ad-users-csv) | Création de comptes Active Directory en masse depuis un CSV, avec simulation et rapport | PowerShell, AD |
 | [`scripts/powershell/nettoyage-poste`](scripts/powershell/nettoyage-poste) | Nettoyage des fichiers temporaires et repérage des vieux profils utilisateurs | PowerShell |
+| [`scripts/powershell/inventaire-parc-csv/`](scripts/powershell/inventaire-parc-csv/) | Inventaire parc vers CSV (Récupère matériel, OS, disque et réseau de plusieurs postes Windows en CIM et exporte le tout en CSV pour Excel) | PowerShell |
 | [`dotfiles`](dotfiles) | Ma config Linux/terminal (alias, bashrc) avec script d'installation | Bash |
 | [`sql/inventaire-parc`](sql/inventaire-parc) | Base SQLite (postes, utilisateurs, services, logiciels) et requêtes de suivi : garanties, Windows 10, antivirus, licences | SQL, SQLite |
 | [`python/parse-auth-log`](python/parse-auth-log/) | Compte les tentatives SSH échouées par IP dans auth.log (gz, journald, export CSV) | Python |
