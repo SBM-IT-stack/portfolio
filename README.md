@@ -51,7 +51,7 @@
 | [`dotfiles`](dotfiles) | Ma config Linux/terminal (alias, bashrc) avec script d'installation | Bash |
 | [`sql/inventaire-parc`](sql/inventaire-parc) | Base SQLite (postes, utilisateurs, services, logiciels) et requêtes de suivi : garanties, Windows 10, antivirus, licences | SQL, SQLite |
 | [`python/parse-auth-log`](python/parse-auth-log/) | Compte les tentatives SSH échouées par IP dans auth.log (gz, journald, export CSV) | Python |
-| [`homelab/01-ad-ds/](homelab/01-ad-ds/) | Windows Server 2022 promu DC (AD DS + DNS), OU, zone inversée, poste client joint au domaine | PowerShell, Windows Server, VirtualBox |
+| [`homelab/01-ad-ds/`](homelab/01-ad-ds/) | Windows Server 2022 promu DC (AD DS + DNS), OU, zone inversée, poste client joint au domaine | PowerShell, Windows Server, VirtualBox |
 
 ### Support & procédures
 
