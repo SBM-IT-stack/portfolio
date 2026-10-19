@@ -52,6 +52,7 @@
 | [`sql/inventaire-parc`](sql/inventaire-parc) | Base SQLite (postes, utilisateurs, services, logiciels) et requêtes de suivi : garanties, Windows 10, antivirus, licences | SQL, SQLite |
 | [`python/parse-auth-log`](python/parse-auth-log/) | Compte les tentatives SSH échouées par IP dans auth.log (gz, journald, export CSV) | Python |
 | [`homelab/01-ad-ds/`](homelab/01-ad-ds/) | Windows Server 2022 promu DC (AD DS + DNS), OU, zone inversée, poste client joint au domaine | PowerShell, Windows Server, VirtualBox |
+| [`homelab/02-glpi/`](homelab/02-glpi/) | Installation de GLPI 11 sur Debian 13 (script Bash) et traitement de 4 tickets de support dans mon lab | GLPI, Debian, Apache, MariaDB, Bash |
 
 ### Support & procédures
 
