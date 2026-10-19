@@ -44,6 +44,7 @@
 | Dossier | Description | Techno |
 |---|---|---|
 | [`scripts/bash`](scripts/bash) | Sauvegarde avec rotation, vérification réseau, espace disque, mise à jour système | Bash |
+| [`scripts/bash/users-csv/`](scripts/bash/users-csv/) | Crée les comptes, groupes et mots de passe temporaires à partir d'un CSV, avec mode simulation et journal | Bash |
 | [`scripts/powershell`](scripts/powershell) | Diagnostic réseau et inventaire système sous Windows | PowerShell |
 | [`scripts/powershell/ad-users-csv`](scripts/powershell/ad-users-csv) | Création de comptes Active Directory en masse depuis un CSV, avec simulation et rapport | PowerShell, AD |
 | [`scripts/powershell/nettoyage-poste`](scripts/powershell/nettoyage-poste) | Nettoyage des fichiers temporaires et repérage des vieux profils utilisateurs | PowerShell |
