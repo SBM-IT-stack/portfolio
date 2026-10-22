@@ -1,0 +1,5 @@
+# Un serveur par ligne : hote ou hote:port (443 si pas de port)
+# Les lignes qui commencent par # sont ignorées
+www.example.com
+intranet.homelab.local
+glpi.homelab.local:8443
