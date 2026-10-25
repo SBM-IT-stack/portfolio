@@ -1,0 +1,5 @@
+# Un serveur par ligne : hote ou hote:port (443 par défaut)
+# Les lignes qui commencent par # sont ignorées
+intranet.lab.local
+glpi.lab.local:443
+mail.lab.local:993
