@@ -80,12 +80,6 @@ Get-SmbShare | Where-Object Name -like '*$'
 Get-ADGroupMember DL_Compta_Modif
 ```
 
-Un piège que j'ai noté : après avoir ajouté un utilisateur dans un groupe, il doit **fermer sa session et se reconnecter**, car les groupes sont lus à l'ouverture de session (dans le jeton Kerberos).
-
-## Sur quoi je l'ai testé
-
-[à compléter : version de Windows Server, client utilisé, hyperviseur]
-
 ## Ce que je voudrais ajouter
 
 - des sous-dossiers avec des droits différents (par exemple un dossier "Paie" visible seulement par une partie de la compta) ;
