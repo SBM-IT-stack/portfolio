@@ -45,15 +45,18 @@
 |---|---|---|
 | [`scripts/bash`](scripts/bash) | Sauvegarde avec rotation, vérification réseau, espace disque, mise à jour système | Bash |
 | [`scripts/bash/users-csv/`](scripts/bash/users-csv/) | Crée les comptes, groupes et mots de passe temporaires à partir d'un CSV, avec mode simulation et journal | Bash |
+| [`scripts/bash/audit-comptes/ `](scripts/bash/audit-comptes/) | Audit des comptes Linux : UID 0 en trop, groupes admin, mots de passe vides ou anciens, comptes inactifs, export CSV | Bash |
 | [`scripts/powershell`](scripts/powershell) | Diagnostic réseau et inventaire système sous Windows | PowerShell |
 | [`scripts/powershell/ad-users-csv`](scripts/powershell/ad-users-csv) | Création de comptes Active Directory en masse depuis un CSV, avec simulation et rapport | PowerShell, AD |
 | [`scripts/powershell/nettoyage-poste`](scripts/powershell/nettoyage-poste) | Nettoyage des fichiers temporaires et repérage des vieux profils utilisateurs | PowerShell |
 | [`scripts/powershell/inventaire-parc-csv/`](scripts/powershell/inventaire-parc-csv/) | Inventaire parc vers CSV (Récupère matériel, OS, disque et réseau de plusieurs postes Windows en CIM et exporte le tout en CSV pour Excel) | PowerShell |
 | [`dotfiles`](dotfiles) | Ma config Linux/terminal (alias, bashrc) avec script d'installation | Bash |
 | [`sql/inventaire-parc`](sql/inventaire-parc) | Base SQLite (postes, utilisateurs, services, logiciels) et requêtes de suivi : garanties, Windows 10, antivirus, licences | SQL, SQLite |
+| [`sql/tickets-support`](sql/tickets-support) | Base SQLite de suivi de tickets (N1/N2, SLA par priorité), vues, trigger d'historique des statuts et requêtes de suivi pour l'équipe support | SQL, SQLite |
 | [`python/parse-auth-log`](python/parse-auth-log/) | Compte les tentatives SSH échouées par IP dans auth.log (gz, journald, export CSV) | Python |
 | [`homelab/01-ad-ds/`](homelab/01-ad-ds/) | Windows Server 2022 promu DC (AD DS + DNS), OU, zone inversée, poste client joint au domaine | PowerShell, Windows Server, VirtualBox |
 | [`homelab/02-glpi/`](homelab/02-glpi/) | Installation de GLPI 11 sur Debian 13 (script Bash) et traitement de 4 tickets de support dans mon lab | GLPI, Debian, Apache, MariaDB, Bash |
+| [`homelab/03-partages-ntfs-gpo`](homelab/03-partages-ntfs-gpo/) | Partages NTFS et lecteurs par GPO ; Dossiers par service, droits NTFS selon AGDLP créés en PowerShell, lecteurs réseau montés par GPO avec ciblage par groupe | PowerShell, AD DS, NTFS, SMB, GPO |
 
 ### Support & procédures
 
@@ -70,6 +73,7 @@
 |---|---|---|
 | [`gestionnaire-taches-php`](gestionnaire-taches-php) | Petite app CRUD de gestion de tâches (SQLite ou MySQL) | PHP, SQL |
 | [`port-scanner`](port-scanner) | Scanner de ports réseau en ligne de commande | Python |
+| [`python/verif-certificats-ssl`](python/verif-certificats-ssl) | Vérification des certificats TLS ; Repère les certificats expirés, invalides ou qui expirent bientôt, export CSV et code de sortie pour tâche planifiée | python |
 | [`domotique-dashboard`](domotique-dashboard) | Tableau de bord web de simulation domotique (capteurs, interrupteurs) | HTML/CSS/JS |
 | [`cobol/01-moyenne`](cobol/01-moyenne) | Calcul de moyenne, min, max et mention avec contrôle des saisies | COBOL |
 | [`cobol/02-fichier-clients`](cobol/02-fichier-clients)| Lecture fichier clients ; Lecture d'un fichier séquentiel à largeur fixe, liste des clients, débiteurs et total des soldes | COBOL (GnuCOBOL)
