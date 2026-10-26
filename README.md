@@ -4,7 +4,7 @@
   Passionné de Linux et d'administration système, curieux de nature, je touche à beaucoup de choses,
   du script Bash au CRUD PHP en passant par la sécurité réseau.
   <br>
-  En recherche d'une alternance BTS SIO option SISR, ou d'un poste en CDI dans la métropole lyonnaise.
+  En recherche d'un poste en CDI dans la métropole lyonnaise en vu d'une VAE pour licence ASSR.
 </p>
 
 <p align="center">
